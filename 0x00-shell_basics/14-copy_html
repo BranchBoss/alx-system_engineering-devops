@@ -1,2 +1,25 @@
 #!/bin/bash
-cp -u *.htm ..
+#!/bin/bash
+
+# set the source and destination directories
+source_dir=$(pwd)
+dest_dir=$(dirname $source_dir)
+
+# loop through all the HTML files in the source directory
+for file in $source_dir/*.html; do
+    # get the file name and extension
+    filename=$(basename $file)
+    extension=${filename##*.}
+    
+    # check if the file exists in the destination directory and if it is older than the source file
+    if [[ -e "$dest_dir/$filename" && "$source_dir/$filename" -nt "$dest_dir/$filename" ]]; then
+        echo "Copying $filename to $dest_dir"
+        cp "$source_dir/$filename" "$dest_dir/$filename"
+    elif [[ ! -e "$dest_dir/$filename" ]]; then
+        echo "Copying $filename to $dest_dir"
+        cp "$source_dir/$filename" "$dest_dir/$filename"
+    fi
+done
+
+echo "Done copying HTML files"
+
