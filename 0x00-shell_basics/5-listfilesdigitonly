@@ -1,3 +1,7 @@
 #!/bin/bash
+<<<<<<< HEAD
 ls -lanh
 
+=======
+ls -al
+>>>>>>> 6d6f59a4b536e583b50b48e0869cd21a259c64a3
