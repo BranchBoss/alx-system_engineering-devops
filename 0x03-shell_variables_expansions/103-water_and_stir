@@ -1,2 +1,2 @@
 #!/bin/bash
-result=$(echo "ibase=water; obase=bestchol; $WATER + $STIR" | bc); echo "$result"
+WATER_VAL=$(tr -d '[a-z]' <<< "$WATER"); STIR_VAL=$(tr -d '[a-z]' <<< "$STIR"); printf "%x\n" $((WATER_VAL + STIR_VAL))

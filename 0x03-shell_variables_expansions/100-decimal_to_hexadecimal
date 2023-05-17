@@ -1,2 +1,2 @@
 #!/bin/bash
-decimal=$DECIMAL; printf "%x\n" $decimal
+input=$(cat); output=$(echo "$input" | tr 'A-Za-z' 'N-ZA-Mn-za-m'); echo "$output"
